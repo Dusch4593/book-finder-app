@@ -1,56 +1,22 @@
 import React from 'react';
+import Book from './Book';
 
-class Search extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      results = [],
-    };
-  };
-
-  componentDidMount(){
-    this.handleSumit('');
-  };
-
-  handleSubmit = async (search_query) => {
-    const GOOD_READS_API_URL = "http://localhost:3000/api/search?q=";
-
-    const [data, setData] = useState({ works: [], isFetching: false });
-
-    useEffect(() => {
-      const fetchWorks = async () => {
-        try {
-          setData({ works: data.works, isFetching: true });
-          const response = await fetch(GOOD_READS_API_URL + search_query);
-          const json = await response.json();
-          const results = await json.results.work;
-          setData({ works: results, isFetching: false });
-        } catch (e) {
-          console.log(e);
-          setData({ works: data.works, isFetching: false });
-        }
-      };
-      fetchWorks();
-    }, []);
-
-    if (data.isFetching) {
-      console.log("fetching");
+export default class Books extends React.Component {
+  render() {
+    if(this.props.loading) {
+      return (
+        <div className="preloader_text">
+          Content is loading...
+        </div>
+      )
+    } else if(this.props.books_found > 1) {
+      return this.props.books_found.map((work, id) => (
+        <Book key={id} title={work.best_book.title._text} author={work.best_book.author.name._text} image={work.best_book.image_url._text} />
+      ));
     } else {
-      console.log(data.works);
+        return (
+          <div className="nothing_found_info">Nothing Found...</div>
+        );
     };
-
-    return (
-      <ul>
-        {data.works.map((work, i) => (
-
-          <li key={i}>
-            <img src={work.best_book.image_url._text}/><br/>
-            {work.best_book.title._text}
-          </li>
-        ))}
-      </ul>
-    );
-  }
+  };
 };
-
-export default Search;

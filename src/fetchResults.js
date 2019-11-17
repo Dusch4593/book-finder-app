@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const extractData = (search_query) => {
+function fetchResults(search_query) {
   const GOOD_READS_API_URL = "http://localhost:3000/api/search?q=";
 
   const [data, setData] = useState({ works: [], isFetching: false });
@@ -28,18 +28,10 @@ const extractData = (search_query) => {
   }
 
   return (
-    <ul>
-      {data.works.map((work, i) => (
-
-        <li key={i}>
-          <img src={work.best_book.image_url._text}/><br/>
-          {work.best_book.title._text}
-        </li>
-      ))}
-    </ul>
+    data.works
   );
 };
 
-export function fetchResults(search_query) {
-  return extractData
-};
+// export function fetchResults() {
+//   return extractData
+// };
