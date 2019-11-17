@@ -35,7 +35,7 @@ class App extends React.Component {
   render() {
     return(
       <div id="main_wrapper">
-        <header>Book Finder App</header>
+        <header>Full Stack Finder</header>
         <div id="content">
           <Search_Bar
             onChange={(event) => this.handleChange(event)}
