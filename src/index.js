@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { fetchResults } from "./fetchResults";
+import  fetchResultsAlt from "./fetchResultsAlt";
 import Search_Bar from "./Search_Bar";
 import Books from "./Books";
 import Book from "./Book";
@@ -26,10 +26,10 @@ class App extends React.Component {
   };
 
   handleClick() {
-    const { search_query } = this.state;
+    const {search_query} = this.state;
     if(!search_query) return;
     this.setState({ loading: true });
-    fetchResults(search_query);
+    fetchResultsAlt(search_query);
 
   }
   render() {
@@ -40,7 +40,7 @@ class App extends React.Component {
           <Search_Bar
             onChange={(event) => this.handleChange(event)}
             search_query={this.state.search_query}
-            onClick={() => this.handleClick}
+            onClick={() => this.handleClick()}
           />
           <Books books_found={this.state.results} loading={this.state.loading}/>
         </div>

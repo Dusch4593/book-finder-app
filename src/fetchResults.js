@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function fetchResults(search_query) {
+export function fetchResults(search_query) {
   const GOOD_READS_API_URL = "http://localhost:3000/api/search?q=";
 
   const [data, setData] = useState({ works: [], isFetching: false });
@@ -27,11 +27,10 @@ function fetchResults(search_query) {
     console.log(data.works);
   }
 
-  return (
-    data.works
-  );
+  return data.works;
 };
-
 // export function fetchResults() {
 //   return extractData
 // };
+
+export default fetchResults;

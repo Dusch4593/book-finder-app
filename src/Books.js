@@ -3,13 +3,7 @@ import Book from './Book';
 
 export default class Books extends React.Component {
   render() {
-    if(this.props.loading) {
-      return (
-        <div className="preloader_text">
-          Content is loading...
-        </div>
-      )
-    } else if(this.props.books_found > 1) {
+    if(this.props.books_found > 1) {
       return this.props.books_found.map((work, id) => (
         <Book key={id} title={work.best_book.title._text} author={work.best_book.author.name._text} image={work.best_book.image_url._text} />
       ));
