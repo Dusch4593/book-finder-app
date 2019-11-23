@@ -4,7 +4,7 @@ const express = require("express");
 const fetch = require("node-fetch");
 const convert = require("xml-js");
 const rateLimit = require("express-rate-limit");
-let cors = require("cors");
+const cors = require("cors");
 const backend = express();
 const port = 3000;
 
@@ -40,7 +40,7 @@ backend.get("/api/search", async (req, res) => {
 		const searchString = `q=${req.query.q}`;
 
 		// It uses node-fetch to call the goodreads api, and reads t he key from .env
-		const response = await fetch(`https://www.goodreads.com/search/index.xml?key=${process.env.GOODREADS_API_KEY}&${searchString}`);
+		const response = await fetch(`http://www.goodreads.com/search/index.xml?key=${process.env.GOODREADS_API_KEY}&${searchString}`);
 		//more info here https://www.goodreads.com/api/index#search.books
 		const xml = await response.text();
 

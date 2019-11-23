@@ -15,7 +15,7 @@ class App extends React.Component {
     this.state = {
       search_query: '',
       loading: false,
-      results: []
+      results: {}
     };
   };
 
@@ -28,9 +28,14 @@ class App extends React.Component {
   handleClick() {
     const {search_query} = this.state;
     if(!search_query) return;
-    this.setState({ loading: true });
-    fetchResultsAlt(search_query);
-
+    this.setState({
+      loading: true,})
+    fetchResultsAlt(search_query)
+      .then((results) => {
+        this.setState({results, loading: false})
+      })
+    console.log(this.state.search_query)
+    console.log(this.state.results)
   }
   render() {
     return(

@@ -1,23 +1,18 @@
 import React from 'react';
 
 const extractData = (response) => {
-  const {books} = response;
-  if(!books) return [];
 
-  return books.map((book) => {
-    const data = book.results;
-
-    const {
-      title,
-    } = data;
-
-    const imgLink = data.work.best_book.image_url;
-    const author = data.work.best_book.author.name._text;
+  if(!response) return {};
+  const data = response.results.work;
+  return data.map((book) => {
+    const title = book.best_book.title._text;
+    const author = book.best_book.author.name._text;
+    const imgLink = book.best_book.image_url;
 
     return {
       title,
-      imgLink,
-      author
+      author,
+      imgLink
     };
 
 
@@ -29,5 +24,7 @@ export default function fetchReultsAlt(search_query) {
   return fetch(GOOD_READS_API_URL)
               .then((res) => res.json())
               .then(extractData)
-              .then((res) => console.log())
+              .then((res) => console.log(res))
+              .catch(console.log)
+
 }
