@@ -4,13 +4,13 @@ import Book from './Book';
 export default class Books extends React.Component {
   render() {
     const {books_found} = this.props
-    if(books_found > 1) {
-      return books_found.map((work) => (
+    if(books_found.length > 1) {
+      return books_found.map((work, id) => (
         <Book
-          key={work}
+          key={id}
           title={work.title}
           author={work.author}
-          image={work.imgLink._text}
+          imgLink={work.imgLink._text}
         />
       ));
     } else {

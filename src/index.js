@@ -72,9 +72,9 @@ handleClick() {
   fetchResultsAlt(search_query)
     .then((results) => {
       this.setState({results, loading: false})
-      console.log(this.state.results)
+      console.log(results)
     })
-
+  console.log(this.state.results)
 }
 
 
