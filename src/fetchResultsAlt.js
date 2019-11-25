@@ -24,7 +24,7 @@ export default function fetchReultsAlt(search_query) {
   return fetch(GOOD_READS_API_URL)
               .then((res) => res.json())
               .then(extractData)
-              .then((res) => console.log(res))
+              .then((data) => {return data})
               .catch(console.log)
 
 }

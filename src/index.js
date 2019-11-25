@@ -21,42 +21,42 @@ class App extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.fetchResults = this.fetchResults.bind(this);
-    this.extractData = this.extractData.bind(this);
+    //this.fetchResults = this.fetchResults.bind(this);
+    //this.extractData = this.extractData.bind(this);
   };
 
-  extractData(response) {
+  // extractData(response) {
+  //
+  //   if(!response) return {};
+  //   const data = response.results.work;
+  //   return data.map((book) => {
+  //     const title = book.best_book.title._text;
+  //     const author = book.best_book.author.name._text;
+  //     const imgLink = book.best_book.image_url;
+  //
+  //     return {
+  //       title,
+  //       author,
+  //       imgLink
+  //     };
+  //
+  //
+  //   });
+  // };
 
-    if(!response) return {};
-    const data = response.results.work;
-    return data.map((book) => {
-      const title = book.best_book.title._text;
-      const author = book.best_book.author.name._text;
-      const imgLink = book.best_book.image_url;
-
-      return {
-        title,
-        author,
-        imgLink
-      };
-
-
-    });
-  };
-
-  fetchResults(search_query) {
-    const GOOD_READS_API_URL = "http://localhost:3000/api/search?q=" + search_query;
-    return fetch(GOOD_READS_API_URL)
-                .then((res) => res.json())
-                .then((res) => this.extractData(res))
-                .then((results) => {
-                  this.setState({
-                    results,
-                    loading: false,
-                  })
-                })
-                .catch(console.log)
-  }
+  // fetchResults(search_query) {
+  //   const GOOD_READS_API_URL = "http://localhost:3000/api/search?q=" + search_query;
+  //   return fetch(GOOD_READS_API_URL)
+  //               .then((res) => res.json())
+  //               .then((res) => this.extractData(res))
+  //               .then((results) => {
+  //                 this.setState({
+  //                   results,
+  //                   loading: false,
+  //                 })
+  //               })
+  //               .catch(console.log)
+  // }
 
   handleChange(event) {
     this.setState({
@@ -64,14 +64,19 @@ class App extends React.Component {
     });
   };
 
-  handleClick() {
-    const {search_query} = this.state;
+handleClick() {
+  const {search_query} = this.state;
 
-    if(!search_query) return;
-    this.setState({ loading: true, });
-    this.fetchResults(search_query);
-    console.log(this.state.results);
-  }
+  if(!search_query) return;
+  this.setState({ loading: true, });
+  fetchResultsAlt(search_query)
+    .then((results) => {
+      this.setState({results, loading: false})
+      console.log(this.state.results)
+    })
+
+}
+
 
   // Component Updating
   render() {
