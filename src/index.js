@@ -33,7 +33,7 @@ class App extends React.Component {
 
     if(!search_query) return;
     this.setState({ loading: true, });
-    fetchResultsAlt(search_query)
+    fetchResults(search_query)
       .then((results) => {
         this.setState({results, loading: false})
         console.log(results)
