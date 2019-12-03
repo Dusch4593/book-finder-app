@@ -11,6 +11,12 @@ First, you'll need to [sign up](goodreads.com) for a Goodreads account and reque
 
 I stored the API key in an environment variable and included in the `.gitignore` file.
 
+Secondly, make sure you've installed `npm`:
+
+- Clone the repo, then `cd` into it's directory in the command line/ console/ terminal
+- Run the command: `install npm`
+
+
 Next, go ahead and clone this repo. Save it somewhere on your local machine where it will be easy to find.
 
 Launch a command line/ console/ terminal window; open a second tab. Then `cd` into the directory of the repo on both tabs.
