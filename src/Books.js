@@ -13,6 +13,7 @@ export default class Books extends React.Component {
           title={work.title}
           author={work.author}
           imgLink={work.imgLink._text}
+          pubDate={work.pubDate}
         />
 
 

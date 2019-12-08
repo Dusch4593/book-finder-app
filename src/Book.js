@@ -5,7 +5,8 @@ export default class Book extends React.Component {
     const {
       title,
       author,
-      imgLink
+      imgLink,
+      pubDate
     } = this.props;
 
     return (
@@ -17,7 +18,7 @@ export default class Book extends React.Component {
           <img src={imgLink} alt = '' className = "book_image" />
         </div>
         <div className = "book_info">
-        Author: {author}
+        <strong>Author</strong>: {author} <br/><br/>
         </div>
       </div>
     )
