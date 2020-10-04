@@ -34,7 +34,13 @@ class App extends Component {
   render() {
     return(
       <div id="main_wrapper">
-        <header id="header_text"><strong>Full Stack Finder</strong></header>
+        <header id="header_text">
+          <strong>Full Stack Finder</strong><br/>
+        </header>
+        <p id="sub_header_text">
+          <i>Results brought to you by <a href="http://www.goodreads.com" rel="noopener" target="_blank">Goodreads</a></i>
+        </p>
+
         <div id="content">
           <SearchBar
             onChange={(event) => this.handleChange(event)}
@@ -46,7 +52,7 @@ class App extends Component {
           <Books books_found={this.state.results} loading={this.state.loading}/>
         </div>
 
-        <footer id="footer_text">Made by Brandon Dusch</footer>
+        <footer id="footer_text">Coded with &#10084;&#65039; by <a href="https://github.com/Dusch4593" rel="noopener" target="_blank" >Brandon Dusch</a> (2020)</footer>
       </div>
     )
   }

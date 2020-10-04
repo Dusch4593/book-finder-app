@@ -22,6 +22,7 @@ export default class Book extends React.Component {
         </div>
         <div className = "book_info">
         <strong>Author</strong>: {author} <br/><br/>
+        <strong>Published Date: </strong> {pubDate}
         </div>
       </div>
     )

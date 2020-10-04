@@ -1,5 +1,5 @@
 html {
-  background-color: #dcdcdc;
+  background-color: #f3e5ab;
 }
 
 body {
@@ -17,6 +17,10 @@ body {
     color: #000080;
     font-family: Oleo Script, cursive, sans-serif;
     font-size: 3em;
+  }
+
+  #sub_header_text {
+    margin-top: 0;
   }
 
   #footer_text {
@@ -55,7 +59,7 @@ body {
 
     .book_image_block {
       display: block;
-      margin: 0.625em;
+      margin: 0 0.625em 0 0.625em;
       width: 8em;
 
       .book_image {
