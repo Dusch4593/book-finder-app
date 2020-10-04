@@ -17,6 +17,19 @@ body {
   #main_wrapper #sub_header_text {
     margin-top: 0; }
 
+#content {
+  width: 100%; }
+
+#search_bar {
+  width: 35%;
+  display: flex;
+  margin: auto; }
+
+.search_bar_input {
+  border: 1px solid red;
+  width: 100%;
+  height: 4em; }
+
 .nothing_found_info {
   text-align: center;
   width: 100%; }
