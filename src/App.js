@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import SearchBar from './SearchBar.js'
 import Books from './Books.js'
-import  fetchResults from "./fetchResults";
+import  fetchBookData from "./fetchBookData";
 
 class App extends Component {
   // Component Mounting
@@ -21,7 +21,7 @@ class App extends Component {
     const {search_query} = this.state
     if(!search_query) return;
     this.setState({loading: true})
-    fetchResults(search_query)
+    fetchBookData(search_query)
       .then(res => {
         this.setState({
             results: res,

@@ -64,6 +64,5 @@ backend.get("/api/search", async (req, res) => {
 	}
 })
 
-
-
+// Node server listen to post and log a message to the console
 backend.listen(port, () => console.log(`Example app listening on port ${port}!`));

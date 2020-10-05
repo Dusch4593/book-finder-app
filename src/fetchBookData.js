@@ -1,6 +1,3 @@
-import React from 'react';
-
-
 // returns an array of objects
 // each object contains some extracted data for each search result
 const extractData = (response) => {
@@ -28,7 +25,7 @@ const extractData = (response) => {
 
 
 // fetches, reformats (XML ---> JSON), extracts and returns the search data via a backend
-export default function fetchReultsAlt(search_query) {
+const fetchBookData = (search_query) => {
   const GOOD_READS_API_URL = "http://localhost:3000/api/search?q=" + search_query;
   return fetch(GOOD_READS_API_URL)
               .then((res) => res.json())
@@ -37,3 +34,5 @@ export default function fetchReultsAlt(search_query) {
               .catch(console.log)
 
 };
+
+export default fetchResultsAlt
